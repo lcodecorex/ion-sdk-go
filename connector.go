@@ -4,8 +4,9 @@ import (
 	"context"
 	"crypto/tls"
 	"crypto/x509"
-	"github.com/pion/ion/proto/rtc"
 	"io/ioutil"
+
+	"github.com/pion/ion/proto/rtc"
 
 	log "github.com/pion/ion-log"
 	"google.golang.org/grpc"
@@ -79,12 +80,12 @@ func NewConnector(addr string, config ...ConnectorConfig) *Connector {
 			}
 
 			config = &tls.Config{
-				InsecureSkipVerify: false,
+				InsecureSkipVerify: true,
 				RootCAs:            cp,
 			}
 		} else {
 			config = &tls.Config{
-				InsecureSkipVerify: false,
+				InsecureSkipVerify: true,
 			}
 		}
 
